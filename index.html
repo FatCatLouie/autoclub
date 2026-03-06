@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <link rel="stylesheet" href="style.css">
+    <title>Мастерская "Авто-Лаб"</title>
+</head>
+<body>
+    <header class="site-header">
+        <img class="logo" src="img/logo.jpg" alt="Логотип"/>
+        <button class="mobile-menu-btn">☰</button>
+        <nav class="nav">
+            <a href="#home">Главная</a>
+            <a href="#about">О нас</a>
+            <a href="#services">Услуги</a>
+            <a href="#contacts">Контакты</a>
+            <button class="btn-with-icon">
+                <img src="img/tg_logo.png" alt="Контакт телеграмм" class="btn-icon">
+            </button>
+            <span class="phone-number">+7 (999) 123-45-67</span>
+        </nav>
+    </header>
+
+    <main class="sections-container">
+        <!-- Главная -->
+        <section id="home" class="section fullscreen-section">
+            <div class="main_info">
+                <img class="main_img" src="img/main1.jpeg" alt="Автомастерская">
+                <div class="overlay"></div>
+                <div class="hero-text">
+                    <h1 class="hero-title">Автоклаб</h1>
+                    <p class="hero-subtitle">Профессиональный услуги для превращения машины в совершенство</p>
+                    
+                    <div class="services-list">
+                        <div class="service-item" data-service="detailing">
+                            <span>Детейлинг</span>
+                        </div>
+                        <div class="service-item" data-service="electrics">
+                            <span>Автоэлектрика</span>
+                        </div>
+                        <div class="service-item" data-service="carbon">
+                            <span>Ламиниция карбоном</span>
+                        </div>
+                        <div class="service-item" data-service="maintenance">
+                            <span>Постгарантийное обслуживание</span>
+                        </div>
+                    </div>
+                    
+                    <button class="hero-button">Записаться</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- О нас -->
+        <section id="about" class="section fullscreen-section">
+            <div class="about-container">
+                <h2 class="section-title">О нашей мастерской</h2>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="about-description">
+                            <span class="about-highlight">АвтоКлаб</span>
+                            <span class="about-text-content">— это современная автомастерская полного цикла, где каждый автомобиль получает индивидуальный подход и высочайшее качество обслуживания.</span>
+                        </p>
+                        
+                        <div class="advantages">
+                            <div class="advantage-item">
+                                <h3>10+ лет опыта</h3>
+                                <p>Более десяти лет успешной работы на рынке автоуслуг</p>
+                            </div>
+                            <div class="advantage-item">
+                                <h3>Профессиональное оборудование</h3>
+                                <p>Современное диагностическое и ремонтное оборудование</p>
+                            </div>
+                            <div class="advantage-item">
+                                <h3>Гарантия качества</h3>
+                                <p>Гарантия на все виды работ до 2 лет</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-container">
+                        <h3 class="gallery-title">Наши работы</h3>
+                        <div class="gallery">
+                            <div class="gallery-track">
+                                <div class="gallery-slide">
+                                    <img src="img/work1.jpg" alt="Работа 1">
+                                </div>
+                                <div class="gallery-slide">
+                                    <img src="img/work2.jpg" alt="Работа 2">
+                                </div>
+                                <div class="gallery-slide">
+                                    <img src="img/work3.jpg" alt="Работа 3">
+                                </div>
+                                <div class="gallery-slide">
+                                    <img src="img/work4.jpg" alt="Работа 4">
+                                </div>
+                                <div class="gallery-slide">
+                                    <img src="img/work5.jpg" alt="Работа 5">
+                                </div>
+                            </div>
+                            <button class="gallery-btn prev">←</button>
+                            <button class="gallery-btn next">→</button>
+                        </div>
+                        <div class="gallery-dots"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Услуги -->
+        <section id="services" class="section fullscreen-section">
+            <div class="services-container">
+                <h2 class="section-title">Наши услуги</h2>
+                
+                <div class="services-carousel">
+                    <div class="services-track">
+                        <!-- Детейлинг -->
+                        <div class="service-card" id="detailing">
+                            <div class="service-image">
+                                <img src="img/service1.jpg" alt="Детейлинг">
+                            </div>
+                            <div class="service-details">
+                                <h3>Детейлинг</h3>
+                                <p>Полный комплекс услуг по уходу за автомобилем:</p>
+                                <ul>
+                                    <li>Химчистка салона</li>
+                                    <li>Полировка кузова</li>
+                                    <li>Нанесение керамики</li>
+                                    <li>Защита салона</li>
+                                </ul>
+                                <span class="service-price">от 15 000 ₽</span>
+                            </div>
+                        </div>
+
+                        <!-- Автоэлектрика -->
+                        <div class="service-card" id="electrics">
+                            <div class="service-image">
+                                <img src="img/service2.jpg" alt="Автоэлектрика">
+                            </div>
+                            <div class="service-details">
+                                <h3>Автоэлектрика</h3>
+                                <p>Диагностика и ремонт электрооборудования:</p>
+                                <ul>
+                                    <li>Диагностика электроники</li>
+                                    <li>Ремонт генераторов</li>
+                                    <li>Установка доп. оборудования</li>
+                                    <li>Чип-тюнинг</li>
+                                </ul>
+                                <span class="service-price">от 5 000 ₽</span>
+                            </div>
+                        </div>
+
+                        <!-- Ламиниция карбоном -->
+                        <div class="service-card" id="carbon">
+                            <div class="service-image">
+                                <img src="img/service3.jpg" alt="Ламиниция карбоном">
+                            </div>
+                            <div class="service-details">
+                                <h3>Ламиниция карбоном</h3>
+                                <p>Оклейка автомобиля карбоновой пленкой:</p>
+                                <ul>
+                                    <li>Детали интерьера</li>
+                                    <li>Элементы кузова</li>
+                                    <li>Зеркала и спойлеры</li>
+                                    <li>Индивидуальный дизайн</li>
+                                </ul>
+                                <span class="service-price">от 25 000 ₽</span>
+                            </div>
+                        </div>
+
+                        <!-- Постгарантийное обслуживание -->
+                        <div class="service-card" id="maintenance">
+                            <div class="service-image">
+                                <img src="img/service4.jpg" alt="Постгарантийное обслуживание">
+                            </div>
+                            <div class="service-details">
+                                <h3>Постгарантийное обслуживание</h3>
+                                <p>Профессиональное обслуживание после гарантии:</p>
+                                <ul>
+                                    <li>Плановое ТО</li>
+                                    <li>Ремонт узлов</li>
+                                    <li>Замена жидкостей</li>
+                                    <li>Диагностика систем</li>
+                                </ul>
+                                <span class="service-price">от 8 000 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="services-btn prev">←</button>
+                    <button class="services-btn next">→</button>
+                </div>
+                
+                <div class="services-dots"></div>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contacts" class="section fullscreen-section">
+            <div class="contacts-container">
+                <h2 class="section-title">Контакты</h2>
+                
+                <div class="contacts-content">
+                    <div class="contacts-info">
+                        <div class="contact-block">
+                            <h3>Адрес</h3>
+                            <p>г. Москва, ул. Автомобильная, д. 123</p>
+                            <p class="contact-note">Въезд с ул. Транспортная</p>
+                        </div>
+
+                        <div class="contact-block">
+                            <h3>Телефон</h3>
+                            <p><a href="tel:+79991234567" class="contact-link">+7 (999) 123-45-67</a></p>
+                        </div>
+
+                        <div class="contact-block">
+                            <h3>Социальные сети</h3>
+                            <div class="social-links">
+                                <a href="#" class="social-link">
+                                    <img src="img/tg_logo.png">
+                                    <span>Telegram</span>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <img src="img/wa_logo.png">
+                                    <span>WhatsApp</span>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <img src="img/vk_logo.png">
+                                    <span>ВКонтакте</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-block">
+                            <h3>График работы</h3>
+                            <ul class="schedule">
+                                <li><span>Пн-Пт:</span> 9:00 - 21:00</li>
+                                <li><span>Сб:</span> 10:00 - 20:00</li>
+                                <li><span>Вс:</span> 10:00 - 18:00</li>
+                            </ul>
+                            <p class="contact-note"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
