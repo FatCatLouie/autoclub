@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <link rel="stylesheet" href="style.css">
-    <title>Мастерская "Авто-Лаб"</title>
+    <title>Мастерская "Автоклаб"</title>
 </head>
 <body>
     <header class="site-header">
         <img class="logo" src="img/logo.jpg" alt="Логотип"/>
         <button class="mobile-menu-btn">☰</button>
         <nav class="nav">
-            <a href="#home">Главная</a>
-            <a href="#about">О нас</a>
-            <a href="#services">Услуги</a>
-            <a href="#contacts">Контакты</a>
-            <button class="btn-with-icon">
+            <a class="menu-btn" href="#home">Главная</a>
+            <a class="menu-btn" href="#about">О нас</a>
+            <a class="menu-btn" href="#services">Услуги</a>
+            <a class="menu-btn" href="#contacts">Контакты</a>
+            <a href="https://t.me/AutoClab" class="btn-with-icon" target="_blank" rel="noopener noreferrer">
                 <img src="img/tg_logo.png" alt="Контакт телеграмм" class="btn-icon">
-            </button>
-            <span class="phone-number">+7 (999) 123-45-67</span>
+            </a>
+            <a class="menu-btn" href="tel:+79168270300" class="phone-number">+7 (916) 827-03-00</a>
         </nav>
     </header>
 
@@ -34,20 +34,23 @@
                     
                     <div class="services-list">
                         <div class="service-item" data-service="detailing">
-                            <span>Детейлинг</span>
+                            <span>Детейлинг и уход за автомобилем</span>
                         </div>
                         <div class="service-item" data-service="electrics">
-                            <span>Автоэлектрика</span>
+                            <span>Автоэлектрика и дооснащение</span>
                         </div>
-                        <div class="service-item" data-service="carbon">
-                            <span>Ламиниция карбоном</span>
+                        <div class="service-item" data-service="repair">
+                            <span>Сервис и ремонт</span>
                         </div>
-                        <div class="service-item" data-service="maintenance">
-                            <span>Постгарантийное обслуживание</span>
+                        <div class="service-item" data-service="motorsports">
+                            <span>Автоспорт и подготовка автомобилей</span>
+                        </div>
+                        <div class="service-item" data-service="exhaust">
+                            <span>Выхлопные системы и сварочные работы</span>
                         </div>
                     </div>
                     
-                    <button class="hero-button">Записаться</button>
+                    <a class="hero-button" href="tel:+79168270300" >Записаться</a>
                 </div>
             </div>
         </section>
@@ -116,73 +119,88 @@
                 
                 <div class="services-carousel">
                     <div class="services-track">
-                        <!-- Детейлинг -->
+                        <!-- Детейлинг и уход за автомобилем -->
                         <div class="service-card" id="detailing">
                             <div class="service-image">
-                                <img src="img/service1.jpg" alt="Детейлинг">
+                                <img src="img/service1.jpg" alt="Детейлинг и уход за автомобилем">
                             </div>
                             <div class="service-details">
-                                <h3>Детейлинг</h3>
-                                <p>Полный комплекс услуг по уходу за автомобилем:</p>
+                                <h3>Детейлинг и уход за автомобилем</h3>
                                 <ul>
-                                    <li>Химчистка салона</li>
                                     <li>Полировка кузова</li>
+                                    <li>Полировка элементов салона</li>
+                                    <li>Полировка фар</li>
+                                    <li>Химчистка салона</li>
                                     <li>Нанесение керамики</li>
-                                    <li>Защита салона</li>
+                                    <li>Оклейка защитной пленкой</li>
+                                    <li>Реставрация кожи</li>
                                 </ul>
                                 <span class="service-price">от 15 000 ₽</span>
                             </div>
                         </div>
 
-                        <!-- Автоэлектрика -->
+                        <!-- Автоэлектрика и дооснащение -->
                         <div class="service-card" id="electrics">
                             <div class="service-image">
-                                <img src="img/service2.jpg" alt="Автоэлектрика">
+                                <img src="img/service2.jpg" alt="Автоэлектрика и дооснащение">
                             </div>
                             <div class="service-details">
-                                <h3>Автоэлектрика</h3>
-                                <p>Диагностика и ремонт электрооборудования:</p>
+                                <h3>Автоэлектрика и дооснащение</h3>
                                 <ul>
-                                    <li>Диагностика электроники</li>
-                                    <li>Ремонт генераторов</li>
-                                    <li>Установка доп. оборудования</li>
-                                    <li>Чип-тюнинг</li>
+                                    <li>Диагностика авто (компьютерная)</li>
+                                    <li>Установка сигнализаций</li>
+                                    <li>Установка бесключевого доступа</li>
+                                    <li>Установка доводчиков дверей</li>
+                                    <li>Дооснащение и открытие скрытых функций</li>
+                                    <li>Замена штатных головных устройств (магнитол)</li>
                                 </ul>
                                 <span class="service-price">от 5 000 ₽</span>
                             </div>
                         </div>
 
-                        <!-- Ламиниция карбоном -->
-                        <div class="service-card" id="carbon">
+                        <!-- Сервис и ремонт -->
+                        <div class="service-card" id="repair">
                             <div class="service-image">
-                                <img src="img/service3.jpg" alt="Ламиниция карбоном">
+                                <img src="img/service3.jpg" alt="Сервис и ремонт">
                             </div>
                             <div class="service-details">
-                                <h3>Ламиниция карбоном</h3>
-                                <p>Оклейка автомобиля карбоновой пленкой:</p>
+                                <h3>Сервис и ремонт</h3>
                                 <ul>
-                                    <li>Детали интерьера</li>
-                                    <li>Элементы кузова</li>
-                                    <li>Зеркала и спойлеры</li>
-                                    <li>Индивидуальный дизайн</li>
+                                    <li>Техническое обслуживание автомобилей</li>
+                                    <li>Ремонт автомобилей</li>
+                                    <li>Постгарантийное обслуживание <span class="bold-text">Omoda / Chery / Jaecoo</span></li>
                                 </ul>
                                 <span class="service-price">от 25 000 ₽</span>
                             </div>
                         </div>
 
-                        <!-- Постгарантийное обслуживание -->
-                        <div class="service-card" id="maintenance">
+                        <!-- Автоспорт и подготовка автомобилей -->
+                        <div class="service-card" id="motorsports">
                             <div class="service-image">
-                                <img src="img/service4.jpg" alt="Постгарантийное обслуживание">
+                                <img src="img/service4.jpg" alt="Автоспорт и подготовка автомобилей">
                             </div>
                             <div class="service-details">
-                                <h3>Постгарантийное обслуживание</h3>
-                                <p>Профессиональное обслуживание после гарантии:</p>
+                                <h3>Автоспорт и подготовка автомобилей</h3>
                                 <ul>
-                                    <li>Плановое ТО</li>
-                                    <li>Ремонт узлов</li>
-                                    <li>Замена жидкостей</li>
-                                    <li>Диагностика систем</li>
+                                    <li>Подготовка авто к автокроссу</li>
+                                    <li>Подготовка к кольцевым гонкам</li>
+                                    <li>Подготовка для серии <span class="bold-text">Lada Time Attack</span></li>
+                                </ul>
+                                <span class="service-price">от 8 000 ₽</span>
+                            </div>
+                        </div>
+
+                        <!-- Выхлопные системы и сварочные работы -->
+                        <div class="service-card" id="exhaust">
+                            <div class="service-image">
+                                <img src="img/service4.jpg" alt="Выхлопные системы и сварочные работы">
+                            </div>
+                            <div class="service-details">
+                                <h3>Выхлопные системы и сварочные работы</h3>
+                                <ul>
+                                    <li>Сварочные работы по выхлопным системам</li>
+                                    <li>Ремонт стандартных выхлопных систем</li>
+                                    <li>Установка и изготовление выхлопа под заказ</li>
                                 </ul>
                                 <span class="service-price">от 8 000 ₽</span>
                             </div>
@@ -212,23 +230,19 @@
 
                         <div class="contact-block">
                             <h3>Телефон</h3>
-                            <p><a href="tel:+79991234567" class="contact-link">+7 (999) 123-45-67</a></p>
+                            <p><a href="tel:+79168270300" class="contact-link">+7 (916) 827-03-00</a></p>
                         </div>
 
                         <div class="contact-block">
                             <h3>Социальные сети</h3>
                             <div class="social-links">
-                                <a href="#" class="social-link">
+                               <a href="https://t.me/AutoClab" class="social-link" target="_blank" rel="noopener noreferrer">
                                     <img src="img/tg_logo.png">
                                     <span>Telegram</span>
                                 </a>
-                                <a href="#" class="social-link">
-                                    <img src="img/wa_logo.png">
-                                    <span>WhatsApp</span>
-                                </a>
-                                <a href="#" class="social-link">
-                                    <img src="img/vk_logo.png">
-                                    <span>ВКонтакте</span>
+                                <a href="https://youtube.com/@autoclab?si=-sb4jn3Aj4gbJn_Q" class="social-link">
+                                    <img src="img/yt_logo.png">
+                                    <span>YouTube</span>
                                 </a>
                             </div>
                         </div>
@@ -240,7 +254,6 @@
                                 <li><span>Сб:</span> 10:00 - 20:00</li>
                                 <li><span>Вс:</span> 10:00 - 18:00</li>
                             </ul>
-                            <p class="contact-note"></p>
                         </div>
                     </div>
                 </div>

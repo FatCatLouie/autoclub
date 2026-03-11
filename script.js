@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
+            if (this.getAttribute('href').startsWith('tel:') || this.getAttribute('href').startsWith('https')) {
+                return;
+            }
             e.preventDefault();
             
             // Закрываем мобильное меню
@@ -143,8 +146,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 switch(serviceId) {
                     case 'detailing': targetIndex = 0; break;
                     case 'electrics': targetIndex = 1; break;
-                    case 'carbon': targetIndex = 2; break;
-                    case 'maintenance': targetIndex = 3; break;
+                    case 'repair': targetIndex = 2; break;
+                    case 'motorsports': targetIndex = 3; break;
+                    case 'exhaust': targetIndex = 4; break;
                 }
                 
                 goToService(targetIndex);
@@ -166,12 +170,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-
-    // Обработка кнопки "Записаться"
-    const bookingButtons = document.querySelectorAll('.hero-button');
-    bookingButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            alert('Спасибо за интерес к нашим услугам! Наш менеджер свяжется с вами в ближайшее время.');
-        });
-    });
 });
