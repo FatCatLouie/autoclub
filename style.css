@@ -6,12 +6,11 @@
 }
 
 :root {
-  --highlight-color: rgb(187, 187, 187);
-  --dark-highlight-color: rgb(70, 70, 70);
-  --highlight-color-transparent: rgba(255,255,255,0.1);
-  --highlight-color-transparent2: rgba(255,255,255,0.2);
-  --letter-color: #fff;
-  --background-color: #000;
+  --highlight-color: #9babab;
+  --dark-highlight-color: #11212d;
+  --letter-color: white;/*#ccd0cf;*/
+  --background-color: #06141b;
+  --accent-color:#4a5c6a;
 }
 
 * {
@@ -28,6 +27,7 @@ body {
 
 /* Хедер */
 .site-header {
+    background-color: black;
     position: sticky;
     top: 0;
     left: 0;
@@ -209,9 +209,9 @@ body {
 
 .service-item {
     padding: 20px;
-    background: var(--highlight-color-transparent);
+    background: rgba(255,255,255,0.1);
     backdrop-filter: blur(5px);
-    border: 1px solid var(--highlight-color-transparent2);
+    border: 1px solid rgba(255,255,255,0.2);
     border-radius: 10px;
     font-size: 20px;
     transition: all 0.3s ease;
@@ -228,7 +228,7 @@ body {
 }
 
 .hero-button {
-    background: var(--dark-highlight-color);
+    background: var(--accent-color);
     color: var(--letter-color);
     border: none;
     padding: 15px 40px;
@@ -238,7 +238,7 @@ body {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px var(--highlight-color-transparent2);
+    box-shadow: 0 4px 15px rgba(255,255,255,0.2);
     line-height: 1;
     display: inline-block;
     text-decoration: none;
@@ -246,7 +246,7 @@ body {
 }
 
 .hero-button:hover {
-    background: #000;
+    background-color: var(--background-color);
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
 }
@@ -254,7 +254,7 @@ body {
 /* Общие стили секций */
 .section-title {
     font-size: 48px;
-    color: white;
+    color: var(--letter-color);
     text-align: center;
     margin-bottom: 30px;
     text-transform: uppercase;
@@ -269,7 +269,7 @@ body {
     height: 100%;
     padding: 15px 40px 10px 40px;
     background: var(--background-color);
-    color: white;
+    color: var(--letter-color);
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -330,7 +330,7 @@ body {
 
 .about-highlight {
     font-weight: 900;
-    color: var(--highlight-color);
+    color: var(--letter-color);
     font-size: 20px;
     margin-right: 5px;
     display: inline-block;
@@ -863,7 +863,6 @@ body {
         width: 44px;
         height: 44px;
         font-size: 22px;
-        background: rgba(0, 136, 204, 0.9);
         z-index: 20;
     }
     
@@ -1183,7 +1182,6 @@ body {
         width: 32px;
         height: 32px;
         font-size: 16px;
-        background: rgba(0, 136, 204, 0.9);
         z-index: 20;
     }
     
@@ -1313,8 +1311,11 @@ body {
     }
 }
 
-@media (max-height: 715px) {
+@media (max-height: 734px) {
      .contacts-info {
         gap: 5px;
      }
+     .social-link {
+        padding: 5px;
+    }
 }
