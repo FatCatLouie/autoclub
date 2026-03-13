@@ -115,7 +115,7 @@ body {
 }
 
 .btn-with-icon {
-    background-color: var(--dark-highlight-color);
+    background-color: var(--accent-color);
     color: var(--letter-color);
     border: none;
     padding: 12px 25px;
