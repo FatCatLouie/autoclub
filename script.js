@@ -49,13 +49,31 @@ document.addEventListener('DOMContentLoaded', function() {
     if (galleryTrack && gallerySlides.length > 0) {
         let currentIndex = 0;
         const slideCount = gallerySlides.length;
+        let autoScrollInterval;
+        
+        // Функция для сброса и перезапуска таймера
+        function resetAutoScroll() {
+            // Очищаем существующий интервал
+            if (autoScrollInterval) {
+                clearInterval(autoScrollInterval);
+            }
+            
+            // Запускаем новый интервал
+            autoScrollInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % slideCount;
+                updateGallery();
+            }, 10000);
+        }
         
         // Создаем dots
         for (let i = 0; i < slideCount; i++) {
             const dot = document.createElement('div');
             dot.classList.add('gallery-dot');
             if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(i));
+            dot.addEventListener('click', () => {
+                goToSlide(i);
+                resetAutoScroll(); // Сбрасываем таймер при клике на dot
+            });
             galleryDotsContainer.appendChild(dot);
         }
         
@@ -77,18 +95,17 @@ document.addEventListener('DOMContentLoaded', function() {
         galleryNext.addEventListener('click', () => {
             currentIndex = (currentIndex + 1) % slideCount;
             updateGallery();
+            resetAutoScroll(); // Сбрасываем таймер при клике на next
         });
         
         galleryPrev.addEventListener('click', () => {
             currentIndex = (currentIndex - 1 + slideCount) % slideCount;
             updateGallery();
+            resetAutoScroll(); // Сбрасываем таймер при клике на prev
         });
         
-        // Автоматическая прокрутка галереи
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % slideCount;
-            updateGallery();
-        }, 10000);
+        // Запускаем автопрокрутку при загрузке страницы
+        resetAutoScroll();
     }
 
     // Карусель услуг
@@ -101,13 +118,29 @@ document.addEventListener('DOMContentLoaded', function() {
     if (servicesTrack && serviceCards.length > 0) {
         let currentServiceIndex = 0;
         const serviceCount = serviceCards.length;
+        let servicesAutoScrollInterval;
+        
+        // Функция для сброса и перезапуска таймера услуг
+        function resetServicesAutoScroll() {
+            if (servicesAutoScrollInterval) {
+                clearInterval(servicesAutoScrollInterval);
+            }
+            
+            servicesAutoScrollInterval = setInterval(() => {
+                currentServiceIndex = (currentServiceIndex + 1) % serviceCount;
+                updateServices();
+            }, 10000);
+        }
         
         // Создаем dots для услуг
         for (let i = 0; i < serviceCount; i++) {
             const dot = document.createElement('div');
             dot.classList.add('services-dot');
             if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToService(i));
+            dot.addEventListener('click', () => {
+                goToService(i);
+                resetServicesAutoScroll(); // Сбрасываем таймер при клике на dot
+            });
             servicesDotsContainer.appendChild(dot);
         }
         
@@ -129,11 +162,13 @@ document.addEventListener('DOMContentLoaded', function() {
         servicesNext.addEventListener('click', () => {
             currentServiceIndex = (currentServiceIndex + 1) % serviceCount;
             updateServices();
+            resetServicesAutoScroll(); // Сбрасываем таймер при клике на next
         });
         
         servicesPrev.addEventListener('click', () => {
             currentServiceIndex = (currentServiceIndex - 1 + serviceCount) % serviceCount;
             updateServices();
+            resetServicesAutoScroll(); // Сбрасываем таймер при клике на prev
         });
 
         // Переход к конкретной услуге с главной
@@ -152,6 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 goToService(targetIndex);
+                resetServicesAutoScroll(); // Сбрасываем таймер при переходе с главной
                 
                 // Прокручиваем к секции услуг
                 const servicesSection = document.querySelector('#services');
@@ -169,5 +205,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
+        
+        // Запускаем автопрокрутку услуг при загрузке страницы
+        resetServicesAutoScroll();
     }
 });
