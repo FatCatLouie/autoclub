@@ -9,6 +9,49 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Закрытие меню при вертикальном свайпе (прокрутке)
+    const sectionsContainer = document.querySelector('.sections-container');
+    
+    if (sectionsContainer && nav) {
+        let scrollTimeout;
+        let lastScrollTop = sectionsContainer.scrollTop;
+        let isScrolling = false;
+        
+        sectionsContainer.addEventListener('scroll', function() {
+            // Если меню активно и пользователь скроллит
+            if (nav.classList.contains('active')) {
+                const currentScrollTop = this.scrollTop;
+                const scrollDifference = Math.abs(currentScrollTop - lastScrollTop);
+                
+                // Если скролл превышает пороговое значение, закрываем меню
+                if (scrollDifference > 10 && !isScrolling) { // порог в 10px для исключения случайных срабатываний
+                    isScrolling = true;
+                    
+                    // Закрываем меню
+                    nav.classList.remove('active');
+                    
+                    // Сбрасываем флаг через небольшой таймаут
+                    setTimeout(() => {
+                        isScrolling = false;
+                    }, 300);
+                }
+                
+                lastScrollTop = currentScrollTop;
+                
+                // Очищаем предыдущий таймаут
+                clearTimeout(scrollTimeout);
+                
+                // Устанавливаем новый таймаут для сброса lastScrollTop после остановки скролла
+                scrollTimeout = setTimeout(() => {
+                    lastScrollTop = sectionsContainer.scrollTop;
+                }, 150);
+            } else {
+                // Если меню не активно, просто обновляем lastScrollTop
+                lastScrollTop = sectionsContainer.scrollTop;
+            }
+        });
+    }
+
     // Закрытие меню при клике на ссылку
     const navLinks = document.querySelectorAll('.nav a');
     
