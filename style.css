@@ -230,6 +230,12 @@ body {
     transform: translateY(-5px);
 }
 
+/* Стили для контейнера кнопки и дропдауна */
+.hero-button-container {
+    position: relative;
+    display: inline-block;
+}
+
 .hero-button {
     background: var(--accent-color);
     color: var(--letter-color);
@@ -245,13 +251,56 @@ body {
     line-height: 1;
     display: inline-block;
     text-decoration: none;
-    
+    min-width: 200px;
 }
 
 .hero-button:hover {
     background-color: var(--background-color);
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Стили для выпадающего меню */
+.contact-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    background: var(--dark-highlight-color);
+    border-radius: 15px;
+    margin-top: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.contact-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 20px;
+    color: var(--letter-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background: var(--accent-color);
 }
 
 /* Общие стили секций */
@@ -919,7 +968,7 @@ body {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 835px) {
     .site-header {
         position: sticky;
         height: 70px;
@@ -988,9 +1037,21 @@ body {
         font-size: 16px;
     }
     
+    .hero-button-container {
+        width: 100%;
+    }
+    
     .hero-button {
         padding: 12px 30px;
         font-size: 20px;
+        min-width: 100%;
+    }
+    
+    .contact-dropdown {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        transform: none;
     }
     
     .section-title {
@@ -1267,6 +1328,11 @@ body {
     }
 }
 
+@media (max-height: 819px) {
+    .dropdown-item {
+        padding: 8px 12px;
+    }
+}
 
 @media (max-height: 754px) {
      .contacts-info {
@@ -1274,6 +1340,9 @@ body {
      }
      .social-link {
         padding: 5px;
+    }
+    .hero-text {
+        top: 45%;
     }
 }
 

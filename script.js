@@ -317,4 +317,41 @@ document.addEventListener('DOMContentLoaded', function() {
         // Запускаем автопрокрутку услуг
         resetServicesAutoScroll();
     }
+
+    // Логика для кнопки "Записаться" с выпадающим меню
+    const bookButton = document.getElementById('mainBookButton');
+    const dropdown = document.getElementById('contactDropdown');
+    
+    if (bookButton && dropdown) {
+        // Открытие/закрытие дропдауна при клике на кнопку
+        bookButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdown.classList.toggle('show');
+        });
+
+        // Закрытие дропдауна при клике вне его
+        document.addEventListener('click', function(e) {
+            if (!bookButton.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // Закрытие дропдауна при скролле
+        sectionsContainer.addEventListener('scroll', function() {
+            dropdown.classList.remove('show');
+        });
+
+        // Закрытие дропдауна при нажатии на пункты меню
+        const dropdownItems = dropdown.querySelectorAll('.dropdown-item');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', function() {
+                dropdown.classList.remove('show');
+            });
+        });
+
+        // Предотвращение закрытия при клике внутри дропдауна
+        dropdown.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    }
 });
