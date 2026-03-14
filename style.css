@@ -150,11 +150,36 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
+/* Класс для отключения принудительной прокрутки */
+.sections-container.no-snap {
+    scroll-snap-type: none;
+    height: auto;
+    min-height: calc(100dvh - 90px);
+    overflow-y: visible;
+}
+
+.sections-container.no-snap .section {
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+    height: auto;
+    min-height: auto;
+    margin-bottom: 30px;
+}
+
+.sections-container.no-snap .section:last-child {
+    margin-bottom: 0;
+}
+
 .section {
     scroll-snap-align: start;
     scroll-snap-stop: always;
     height: calc(100dvh - 90px);
     overflow: hidden;
+}
+
+.sections-container.no-snap .section {
+    height: auto;
+    overflow: visible;
 }
 
 .fullscreen-section {
@@ -163,11 +188,21 @@ body {
     position: relative;
 }
 
+.sections-container.no-snap .fullscreen-section {
+    height: auto;
+    min-height: auto;
+}
+
 /* Главная страница */
 .main_info {
     width: 100%;
     height: 100%;
     position: relative;
+}
+
+.sections-container.no-snap .main_info {
+    height: auto;
+    min-height: 100%;
 }
 
 .hero-text {
@@ -182,6 +217,15 @@ body {
     max-width: 1200px;
     /* Добавляем отступ снизу для мобильных устройств, чтобы контент не уходил под панель браузера */
     padding-bottom: env(safe-area-inset-bottom, 20px);
+}
+
+.sections-container.no-snap .hero-text {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    padding: 40px 20px;
+    margin: 0 auto;
 }
 
 .hero-title {
@@ -327,6 +371,11 @@ body {
     overflow-y: auto;
     /* Добавляем отступ снизу для безопасной зоны */
     padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+}
+
+.sections-container.no-snap .about-container {
+    height: auto;
+    overflow-y: visible;
 }
 
 .about-container::-webkit-scrollbar {
@@ -521,6 +570,11 @@ body {
     padding-bottom: 0;
 }
 
+.sections-container.no-snap .services-container {
+    height: auto;
+    min-height: 100%;
+}
+
 .services-carousel {
     position: relative;
     max-width: 1200px;
@@ -655,6 +709,10 @@ body {
     flex-direction: column;
     /* Добавляем большой отступ снизу для безопасной зоны, чтобы контент не перекрывался панелью */
     padding-bottom: calc(30px + env(safe-area-inset-bottom, 20px));
+}
+
+.sections-container.no-snap .contacts-container {
+    height: auto;
 }
 
 .contacts-content {
@@ -1228,6 +1286,11 @@ body {
         padding-right: 5px;
     }
     
+    .sections-container.no-snap .contacts-info {
+        max-height: none;
+        overflow-y: visible;
+    }
+    
     .contacts-info::-webkit-scrollbar {
         width: 4px;
     }
@@ -1326,6 +1389,10 @@ body {
     .contacts-info {
         max-height: calc(100dvh - 160px - env(safe-area-inset-bottom, 0px));
     }
+    
+    .sections-container.no-snap .contacts-info {
+        max-height: none;
+    }
 }
 
 @media (max-height: 819px) {
@@ -1343,6 +1410,10 @@ body {
     }
     .hero-text {
         top: 45%;
+    }
+    
+    .sections-container.no-snap .hero-text {
+        top: 0;
     }
 }
 

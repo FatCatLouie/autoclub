@@ -82,6 +82,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Функция для определения, нужно ли отключить принудительную прокрутку
+    function shouldDisableSnap() {
+        return window.innerHeight < 725;
+    }
+
+    // Функция для обновления класса у контейнера секций
+    function updateSnapClass() {
+        if (sectionsContainer) {
+            if (shouldDisableSnap()) {
+                sectionsContainer.classList.add('no-snap');
+            } else {
+                sectionsContainer.classList.remove('no-snap');
+            }
+        }
+    }
+
+    // Проверяем при загрузке
+    updateSnapClass();
+
+    // Проверяем при изменении размера окна
+    window.addEventListener('resize', function() {
+        updateSnapClass();
+    });
+
     // Функция для инициализации свайпов
     function initSwipe(element, options) {
         let touchStartX = 0;
@@ -322,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const bookButton = document.getElementById('mainBookButton');
     const dropdown = document.getElementById('contactDropdown');
     
-    if (bookButton && dropdown) {
+    if (bookButton && dropdown && sectionsContainer) {
         // Открытие/закрытие дропдауна при клике на кнопку
         bookButton.addEventListener('click', function(e) {
             e.stopPropagation();
