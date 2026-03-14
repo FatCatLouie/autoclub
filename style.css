@@ -439,10 +439,10 @@ body {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 8px;
     flex-shrink: 0;
-    padding-bottom: env(safe-area-inset-bottom, 10px);
-    margin-bottom: max(10px, env(safe-area-inset-bottom, 10px));
+    padding-bottom: env(safe-area-inset-bottom, 8px);
+    margin-bottom: max(8px, env(safe-area-inset-bottom, 8px));
 }
 
 .gallery-dot, .services-dot {
@@ -803,7 +803,7 @@ body {
     }
     
     /* Кнопки навигации */
-    .services-btn {
+    .services-btn, .gallery-btn {
         width: 44px;
         height: 44px;
         font-size: 22px;
@@ -1134,7 +1134,7 @@ body {
         padding: 4px 12px;
     }
     
-    .services-btn {
+    .services-btn, .gallery-btn {
         width: 32px;
         height: 32px;
         font-size: 16px;
@@ -1244,7 +1244,7 @@ body {
         padding: 10px 35px 0 35px;
     }
     
-    .services-btn {
+    .services-btn, .gallery-btn {
         width: 30px;
         height: 30px;
         font-size: 16px;
