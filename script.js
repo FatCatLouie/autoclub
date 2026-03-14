@@ -316,6 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     case 'repair': targetIndex = 2; break;
                     case 'motorsports': targetIndex = 3; break;
                     case 'exhaust': targetIndex = 4; break;
+                    case 'carbon': targetIndex = 5; break;
                 }
                 
                 goToService(targetIndex);
