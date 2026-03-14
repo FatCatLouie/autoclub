@@ -163,11 +163,6 @@ body {
     scroll-snap-stop: normal;
     height: auto;
     min-height: auto;
-    margin-bottom: 30px;
-}
-
-.sections-container.no-snap .section:last-child {
-    margin-bottom: 0;
 }
 
 .section {
@@ -358,6 +353,14 @@ body {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     line-height: 1.2;
     cursor: default;
+}
+
+.sections-container.no-snap .section-title {
+    margin-top: 5dvh;
+}
+
+.sections-container.no-snap .about-title {
+    margin-top: 20dvh;
 }
 
 /* Секция "О нас" */
@@ -1407,9 +1410,6 @@ body {
      }
      .social-link {
         padding: 5px;
-    }
-    .hero-text {
-        top: 45%;
     }
     
     .sections-container.no-snap .hero-text {
