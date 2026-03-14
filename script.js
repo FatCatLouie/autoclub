@@ -39,6 +39,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Функция для инициализации свайпов
+    function initSwipe(element, options) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let isSwiping = false;
+        const minSwipeDistance = 50; // минимальное расстояние для свайпа
+
+        element.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            isSwiping = true;
+        }, { passive: true });
+
+        element.addEventListener('touchmove', (e) => {
+            if (!isSwiping) return;
+            touchEndX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        element.addEventListener('touchend', (e) => {
+            if (!isSwiping) return;
+            
+            const distance = touchEndX - touchStartX;
+            
+            if (Math.abs(distance) >= minSwipeDistance) {
+                if (distance > 0) {
+                    // Свайп вправо - предыдущий слайд
+                    options.onSwipeRight();
+                } else {
+                    // Свайп влево - следующий слайд
+                    options.onSwipeLeft();
+                }
+            }
+            
+            // Сброс
+            touchStartX = 0;
+            touchEndX = 0;
+            isSwiping = false;
+        }, { passive: true });
+    }
+
     // Галерея (О нас)
     const galleryTrack = document.querySelector('.gallery-track');
     const gallerySlides = document.querySelectorAll('.gallery-slide');
@@ -53,12 +92,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Функция для сброса и перезапуска таймера
         function resetAutoScroll() {
-            // Очищаем существующий интервал
             if (autoScrollInterval) {
                 clearInterval(autoScrollInterval);
             }
             
-            // Запускаем новый интервал
             autoScrollInterval = setInterval(() => {
                 currentIndex = (currentIndex + 1) % slideCount;
                 updateGallery();
@@ -72,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (i === 0) dot.classList.add('active');
             dot.addEventListener('click', () => {
                 goToSlide(i);
-                resetAutoScroll(); // Сбрасываем таймер при клике на dot
+                resetAutoScroll();
             });
             galleryDotsContainer.appendChild(dot);
         }
@@ -95,16 +132,30 @@ document.addEventListener('DOMContentLoaded', function() {
         galleryNext.addEventListener('click', () => {
             currentIndex = (currentIndex + 1) % slideCount;
             updateGallery();
-            resetAutoScroll(); // Сбрасываем таймер при клике на next
+            resetAutoScroll();
         });
         
         galleryPrev.addEventListener('click', () => {
             currentIndex = (currentIndex - 1 + slideCount) % slideCount;
             updateGallery();
-            resetAutoScroll(); // Сбрасываем таймер при клике на prev
+            resetAutoScroll();
         });
         
-        // Запускаем автопрокрутку при загрузке страницы
+        // Инициализация свайпов для галереи
+        initSwipe(galleryTrack, {
+            onSwipeLeft: () => {
+                currentIndex = (currentIndex + 1) % slideCount;
+                updateGallery();
+                resetAutoScroll();
+            },
+            onSwipeRight: () => {
+                currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+                updateGallery();
+                resetAutoScroll();
+            }
+        });
+        
+        // Запускаем автопрокрутку
         resetAutoScroll();
     }
 
@@ -139,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (i === 0) dot.classList.add('active');
             dot.addEventListener('click', () => {
                 goToService(i);
-                resetServicesAutoScroll(); // Сбрасываем таймер при клике на dot
+                resetServicesAutoScroll();
             });
             servicesDotsContainer.appendChild(dot);
         }
@@ -162,13 +213,27 @@ document.addEventListener('DOMContentLoaded', function() {
         servicesNext.addEventListener('click', () => {
             currentServiceIndex = (currentServiceIndex + 1) % serviceCount;
             updateServices();
-            resetServicesAutoScroll(); // Сбрасываем таймер при клике на next
+            resetServicesAutoScroll();
         });
         
         servicesPrev.addEventListener('click', () => {
             currentServiceIndex = (currentServiceIndex - 1 + serviceCount) % serviceCount;
             updateServices();
-            resetServicesAutoScroll(); // Сбрасываем таймер при клике на prev
+            resetServicesAutoScroll();
+        });
+
+        // Инициализация свайпов для карусели услуг
+        initSwipe(servicesTrack, {
+            onSwipeLeft: () => {
+                currentServiceIndex = (currentServiceIndex + 1) % serviceCount;
+                updateServices();
+                resetServicesAutoScroll();
+            },
+            onSwipeRight: () => {
+                currentServiceIndex = (currentServiceIndex - 1 + serviceCount) % serviceCount;
+                updateServices();
+                resetServicesAutoScroll();
+            }
         });
 
         // Переход к конкретной услуге с главной
@@ -187,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 goToService(targetIndex);
-                resetServicesAutoScroll(); // Сбрасываем таймер при переходе с главной
+                resetServicesAutoScroll();
                 
                 // Прокручиваем к секции услуг
                 const servicesSection = document.querySelector('#services');
@@ -206,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Запускаем автопрокрутку услуг при загрузке страницы
+        // Запускаем автопрокрутку услуг
         resetServicesAutoScroll();
     }
 });
